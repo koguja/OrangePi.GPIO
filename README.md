@@ -4,17 +4,11 @@ This is a modified version of **RPi.GPIO** for Orange Pi Boards.
 
 It is based on the original [RPi.GPIO](https://pypi.python.org/pypi/RPi.GPIO).
 
-## Installation
-
-#### With PIP
-
-    sudo pip install OrangePi.GPIO
-
-#### Manual
+## Manual Installation
 
     sudo apt-get update
     sudo apt-get install python-dev git
-    git clone https://github.com/Jeremie-C/OrangePi.GPIO
+    git clone https://github.com/Pako2/OrangePi.GPIO.git
     cd /OrangePi.GPIO
     sudo python setup.py install 
     OR (for H6 boards Lite2, One Plus and "3"): 
