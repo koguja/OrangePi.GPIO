@@ -21,6 +21,7 @@ SOFTWARE.
 """
 
 from distutils.core import setup, Extension
+import sys
 
 classifiers = ['Development Status :: 3 - Alpha',
                'Operating System :: POSIX :: Linux',
@@ -36,8 +37,17 @@ classifiers = ['Development Status :: 3 - Alpha',
 with open("README.md", "r") as fh:
       long_description = fh.read()
 
+if '--force-h6' in sys.argv:
+    extensions = [Extension('OPi.GPIO', ['source/py_gpio.c', 'source/c_gpio.c', 'source/boards.c', 'source/common.c', 'source/constants.c', 'source/soft_pwm.c', 'source/py_pwm.c', 'source/event_gpio.c'], define_macros=[('FORCE_H6','1')])]
+    sys.argv.remove('--force-h6')
+else:
+    extensions = [Extension('OPi.GPIO', ['source/py_gpio.c', 'source/c_gpio.c', 'source/boards.c', 'source/common.c', 'source/constants.c', 'source/soft_pwm.c', 'source/py_pwm.c', 'source/event_gpio.c'])]
+
+
+
+
 setup(name             = 'OrangePi.GPIO',
-      version          = '0.6.3',
+      version          = '0.6.3.1',
       author           = 'Jeremie-C',
       description      = 'A module to control OrangePi GPIO channels',
       long_description=long_description,
@@ -47,4 +57,4 @@ setup(name             = 'OrangePi.GPIO',
       url              = 'https://github.com/Jeremie-C/OrangePi.GPIO',
       classifiers      = classifiers,
       packages         = ['OPi'],
-      ext_modules = [Extension('OPi.GPIO', ['source/py_gpio.c', 'source/c_gpio.c', 'source/boards.c', 'source/common.c', 'source/constants.c', 'source/soft_pwm.c', 'source/py_pwm.c', 'source/event_gpio.c'])])
+      ext_modules = extensions)
