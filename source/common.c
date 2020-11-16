@@ -44,6 +44,7 @@ int is_valid_raw_port(int channel)
 	if (channel >= 128 && channel < 147) return 5; // PE
 	if (channel >= 160 && channel < 167) return 6; // PF
 	if (channel >= 192 && channel < 207) return 7; // PG
+	if (channel >= 224 && channel < 256) return 8; // PH
 	if (channel >= 352 && channel < 365) return 12; // PL
 	return 0;
 }

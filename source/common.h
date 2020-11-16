@@ -32,6 +32,9 @@ SOFTWARE.
 #define PLUS2E          4
 #define PC2             5
 #define PRIME           6
+#define LITE2           7
+#define ONEPLUS         7
+#define THREE           8
 
 #define MODE_UNKNOWN   -1
 #define BOARD          10

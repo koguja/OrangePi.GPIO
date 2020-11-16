@@ -75,7 +75,7 @@ static PyObject *py_setopi(PyObject *self, PyObject *args)
     return NULL;
   }
 
-  if (board_type < ZERO || board_type > PRIME )
+  if (board_type < ZERO || board_type > THREE )
   {
     PyErr_SetString(PyExc_ValueError, "An invalid board was passed to setboard()");
     return NULL;
@@ -89,6 +89,8 @@ static PyObject *py_setopi(PyObject *self, PyObject *args)
     case 4 : pin_to_gpio = &pin_to_gpio_pc; break;
     case 5 : pin_to_gpio = &pin_to_gpio_pc2; break;
     case 6 : pin_to_gpio = &pin_to_gpio_prime; break;
+    case 7 : pin_to_gpio = &pin_to_gpio_lite2; break;
+    case 8 : pin_to_gpio = &pin_to_gpio_three; break;
   }
 
   Py_RETURN_NONE;
