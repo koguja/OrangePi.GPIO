@@ -58,4 +58,3 @@ setup(name             = 'OrangePi.GPIO',
       classifiers      = classifiers,
       packages         = ['OPi'],
       ext_modules = extensions)
-
