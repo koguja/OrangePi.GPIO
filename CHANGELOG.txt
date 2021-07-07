@@ -1,0 +1,2 @@
+0.6.4.0 - fixed: calling callbacks when mode == GPIO.BOARD
+0.6.3.1 - added support of H6 boards

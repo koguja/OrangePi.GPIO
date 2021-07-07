@@ -47,7 +47,7 @@ else:
 
 
 setup(name             = 'OrangePi.GPIO',
-      version          = '0.6.3.1',
+      version          = '0.6.4.0',
       author           = 'Jeremie-C',
       description      = 'A module to control OrangePi GPIO channels',
       long_description=long_description,
