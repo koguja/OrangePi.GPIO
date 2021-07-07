@@ -157,6 +157,23 @@ static PyObject *py_getmode(PyObject *self, PyObject *args)
    return value;
 }
 
+
+static unsigned int chan_from_gpio(unsigned int gpio)
+{
+   int chan;
+   int chans;
+
+   if (gpio_mode == BCM)
+      return gpio;
+   chans = 40;
+
+   for (chan=1; chan<=chans; chan++)
+      if (*(*pin_to_gpio+chan) == (int)gpio)
+         return chan;
+   return -1;
+}
+
+
 // python function setwarnings(state)
 static PyObject *py_setwarnings(PyObject *self, PyObject *args)
 {
@@ -419,7 +436,7 @@ static void run_py_callbacks(unsigned int gpio)
     if (cb->gpio == gpio) {
       // run callback
       gstate = PyGILState_Ensure();
-      result = PyObject_CallFunction(cb->py_cb, "i", gpio);
+      result = PyObject_CallFunction(cb->py_cb, "i", chan_from_gpio(gpio));
       if (result == NULL && PyErr_Occurred()){
         PyErr_Print();
         PyErr_Clear();
