@@ -47,14 +47,14 @@ else:
 
 
 setup(name             = 'OrangePi.GPIO',
-      version          = '0.6.4.0',
+      version          = '0.6.5',
       author           = 'Jeremie-C',
       description      = 'A module to control OrangePi GPIO channels',
       long_description=long_description,
       long_description_content_type="text/markdown",
       license          = 'MIT',
       keywords         = 'OrangePi GPIO',
-      url              = 'https://github.com/Jeremie-C/OrangePi.GPIO',
+      url              = 'https://github.com/Pako2/OrangePi.GPIO', #fork from 'https://github.com/Jeremie-C/OrangePi.GPIO'
       classifiers      = classifiers,
       packages         = ['OPi'],
       ext_modules = extensions)

@@ -1,2 +1,3 @@
+0.6.5   - fixed: control of pins belonging to PL port did not work (other addressing)
 0.6.4.0 - fixed: calling callbacks when mode == GPIO.BOARD
 0.6.3.1 - added support of H6 boards
