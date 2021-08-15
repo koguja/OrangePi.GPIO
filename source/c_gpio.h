@@ -21,17 +21,24 @@ SOFTWARE.
 */
 
 
+
 #ifdef FORCE_H6 //USE  define_macros=[('FORCE_H6','1')] as argument in  distutils.core.Extension !!!
 #define GPIO_BASE_OPI     (0x0300B000)
-#define SUNXI_GPIO_BASE   (0x0300B000)
+#define SUNXI_PIO_BASE    (0x0300B000)
+#define SUNXI_R_PIO_BASE  (0x07022000)
+#define DUMMY_PIO_BASE    (SUNXI_R_PIO_BASE - 11 * 36) //(0x07021E74)
 #define SUNXI_PWM_BASE    (0x0300A000)
 #define MAP_SIZE          (4096*1)
 #else
 #define GPIO_BASE_OPI     (0x01C20000)
-#define SUNXI_GPIO_BASE   (0x01C20800)
+#define SUNXI_PIO_BASE    (0x01C20800)
+#define SUNXI_R_PIO_BASE  (0x01F02C00)
+#define DUMMY_PIO_BASE    (SUNXI_R_PIO_BASE - 11 * 36) //(0x01F02A74)
 #define SUNXI_PWM_BASE    (0x01C21400)
 #define MAP_SIZE          (4096*2)
 #endif
+
+#define SUNXI_GPIO_REG_OFFSET  (0x800)
 
 #define PAGE_SIZE         (4*1024)
 #define BLOCK_SIZE        (4*1024)
