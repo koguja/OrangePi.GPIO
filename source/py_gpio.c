@@ -298,11 +298,31 @@ static PyObject *py_input_gpio(PyObject *self, PyObject *args)
       PyErr_SetString(PyExc_RuntimeError, "You must setup() the GPIO channel first");
       return NULL;
    }
-
+// Pako2 ADDED START //
    if (check_gpio_priv())
       return NULL;
+   if(gpio_function(gpio) == 6){
+       if (OPiGPIODebug)
+          printf("H3 - edge detect on pin is enabled!\n");
+       char fName[64];
+       struct stat s;
+       sprintf(fName, "/sys/class/gpio/gpio%d", gpio);
+       if(stat(fName, &s) == -1) {
+            if (gpio_export(gpio) != 0) {
+               PyErr_SetString(PyExc_RuntimeError, "Pin export failed");
+               return NULL;
+            }
+       }
+       if (gpio_get_value(gpio)==1) {
+          value = Py_BuildValue("i", HIGH);
+       } else {
+          value = Py_BuildValue("i", LOW);
+       }
+       return value;
+   }
+// Pako2 ADDED END //
 
-   if (input_gpio(gpio)) {
+if (input_gpio(gpio)) {
       value = Py_BuildValue("i", HIGH);
    } else {
       value = Py_BuildValue("i", LOW);

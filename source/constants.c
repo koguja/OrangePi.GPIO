@@ -98,7 +98,7 @@ void define_constants(PyObject *module)
 	bthree = Py_BuildValue("i", THREE);
 	PyModule_AddObject(module, "THREE", bthree);
 
-	version = Py_BuildValue("s", "0.6.5");
+	version = Py_BuildValue("s", "0.6.6");
 	PyModule_AddObject(module, "VERSION", version);
 
 	PyModule_AddObject(module, "PA", Py_BuildValue("i", 0));
