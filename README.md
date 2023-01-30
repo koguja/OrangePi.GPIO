@@ -13,6 +13,9 @@ It is based on the original [RPi.GPIO](https://pypi.python.org/pypi/RPi.GPIO).
     sudo python setup.py install 
     OR (for H6 boards Lite2, One Plus and "3"): 
     sudo python setup.py install --force-h6
+    
+    if you get an error try using this command:
+    sudo CFLAGS="-fcommon" python3 setup.py install --force-h6
 
 ## Supported Boards
 
