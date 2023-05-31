@@ -7,12 +7,12 @@ It is based on the original [RPi.GPIO](https://pypi.python.org/pypi/RPi.GPIO).
 ## Manual Installation
 
     sudo apt-get update
-    sudo apt-get install python-dev git
+    sudo apt-get install python3-dev git
     git clone https://github.com/Pako2/OrangePi.GPIO.git
     cd OrangePi.GPIO
-    sudo python setup.py install 
+    sudo python3 setup.py install 
     OR (for H6 boards Lite2, One Plus and "3"): 
-    sudo python setup.py install --force-h6
+    sudo python3 setup.py install --force-h6
     
     if you get an error try using this command:
     sudo CFLAGS="-fcommon" python3 setup.py install --force-h6
