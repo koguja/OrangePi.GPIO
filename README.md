@@ -8,7 +8,11 @@ It is based on the original [RPi.GPIO](https://pypi.python.org/pypi/RPi.GPIO).
 
     sudo apt-get update
     sudo apt-get install python3-dev git
-    git clone https://github.com/Pako2/OrangePi.GPIO.git
+    git clone https://github.com/koguja/OrangePi.GPIO.git
+
+    if you receive error , try tutn off certificate control 
+    git config --global http.sslverify false
+    
     cd OrangePi.GPIO
     sudo python3 setup.py install 
     OR (for H6 boards Lite2, One Plus and "3"): 
